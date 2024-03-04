@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.no.ofcarts{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #37eb34;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#pricebox{
+    display: flex;
+    justify-content: center;
+}
