@@ -7,7 +7,6 @@ let str = "";
 let cart = [];
 let datas = undefined;
 let cartAddedvalue = false;
-let gotoCart = false;
 let addCarts = [];
 let index = 0;
 
@@ -37,8 +36,8 @@ function iterateLists(data) {
       <h6 class="card-price">$${price}</h6>
       <h6 class="card-category">${category}</h6>
       <p class="card-text">$${description.substring(0, 100)}</p>
-      <button onclick="onADD(${id})" class="addcart btn btn-primary">${cartAddedvalue ? "Remove Item" : "AddtoCart"
-        }</button>
+      <button onclick="onADD(${id})" class="addcart btn btn-primary">
+      ${cartAddedvalue ? "Remove Item" : "AddtoCart"}</button>
       </div>
       </div>
       `;
@@ -51,15 +50,15 @@ function iterateLists(data) {
 showLists();
 
 function onADD(i) {
- gotoCart = true;
- 
+  gotoCart = true;
   if (cartAddedvalue) {
     index--;
-    if (index) {
-      carts.innerHTML = `<span>Carts ${index}</span>`;
-    } else {
-      carts.innerHTML = `<span>Carts</span>`;
-    }
+      if (index) {
+        carts.innerHTML = `<span>Carts ${index}</span>`;
+      } 
+      else {
+        carts.innerHTML = `<span>Carts</span>`;
+      }
     addCarts = addCarts.filter((cart) => cart.id != i);
 
     iterateLists(addCarts);
@@ -67,13 +66,15 @@ function onADD(i) {
     addCarts.forEach((cart) => {
       totalprice += cart.price;
     });
-    if (totalprice) {
-      pricebox.innerHTML = `${cartAddedvalue && `<h1 id='prices'>Your price is $${totalprice}</h1>`
-        }`;
-    } else {
-      pricebox.innerHTML = "";
-    }
-  } else {
+      if (totalprice) {
+        pricebox.innerHTML = `${cartAddedvalue && `<h1 id='prices'>Your price is $${totalprice}</h1>`
+          }`;
+      } 
+      else {
+        pricebox.innerHTML = "";
+      }
+  } 
+  else {
     addCarts.push(datas[i]);
     index++;
     carts.innerHTML = `<span>Carts ${index}</span>`;
@@ -97,7 +98,6 @@ categories.forEach((category) => {
       showLists();
     } else {
       let categoryid = category.innerHTML;
-
       let newDataofLists = datas.filter((data) => data.category === categoryid);
       iterateLists(newDataofLists);
     }
