@@ -31,19 +31,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="category cursor-pointer nav-link active" aria-current="page" href="#">Home</a>
+              <a id="home" class="category cursor-pointer nav-link active" aria-current="page">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="category cursor-pointer nav-link">men's clothing</a>
-            </li>
-            <li class="nav-item">
-              <a class="category cursor-pointer nav-link">jewelery</a>
-            </li>
-            <li class="nav-item">
-              <a class="category cursor-pointer nav-link">electronics</li> 
-            <li class="nav-item">
-              <a class="category cursor-pointer nav-link">women's clothing</a>
-            </li>
+            <div class="d-flex flex-row flex-wrap" id="categorybox">
+
+            </div>
           </ul>
         </div>
         <button id="carts" onclick="showCart()" class="btn btn-primary">Carts
@@ -51,6 +43,10 @@
       </div>
       
     </nav>
+    <div class="filteringbyPrice my-4 d-flex flex-column align-items-center">
+      <input class="w-25" type="range"  min="1000" max="200000" name="" id="filterprice">
+      <h4 id="filterpriceValue">Items By Price </h4>
+    </div>
     <div
       id="cards-lists"
       class="container my-3 d-flex flex-row flex-wrap"
