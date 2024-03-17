@@ -124,7 +124,6 @@ categorybox.addEventListener('click',(e)=>{
     const databyCategory = datas.filter(ele=>ele.category === e.target.innerHTML);
     showFilteringPriceProgressBar()
     iterateLists(databyCategory);
-    
    }
 })
 
