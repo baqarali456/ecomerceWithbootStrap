@@ -22,7 +22,7 @@ const showLists = async () => {
     const response = await fetch(url);
     const result = await response.json();
     const {products} = result; 
-    datas = products.map(ele=>({...ele,price:Number(ele.price) * 82,category:ele.category.capitalize()}));
+    datas = products.map(ele=>({...ele,price:Number(ele.price) * 82,category:ele.category.capitalize().split('-').join('')}));
     allcategories = [...new Set(datas.map(ele=>ele.category))]
     
     showCategory()
@@ -112,7 +112,7 @@ let strforCategory = "";
 function showCategory(){
   allcategories.forEach(ele=>{
     strforCategory += `<li class="nav-item">
-    <a class="category cursor-pointer nav-link">${ele}</a>
+    <a class="category cursor-pointer fw-semibold nav-link">${ele}</a>
   </li>`;
   categorybox.innerHTML = strforCategory;
   })
